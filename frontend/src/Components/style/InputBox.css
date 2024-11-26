@@ -1,0 +1,27 @@
+.input-component {
+    position: relative;
+    display: inline-block;
+}
+
+.input-component input {
+    padding-right: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 300px;
+    color: black;
+}
+
+.input-component button {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    border: none;
+    background-color: rgb(2, 71, 2);
+    cursor: pointer; 
+    margin: 2px;
+    border-radius: 5px;
+    color: rgba(224, 203, 203, 0.678);
+    
+}
+
