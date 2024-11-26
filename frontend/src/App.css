@@ -1,6 +1,14 @@
 .flex-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  align-content: center;
+}
+
+:root {
+  background-color: rgba(174, 177, 179, 0.253);
+  padding: 50px;
+}
+.weatherFrame {
+  background-color: rgba(189, 237, 252, 0.349);
+  padding: 10px;
+  margin: 30px;
 }
