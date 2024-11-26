@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
+
+
+*{
+  font-family: 'Heebo', sans-serif;
+}
+
+div p {
+  color: rgb(142, 151, 156);
+  font-size: 25px;
+}
+
 .flex-container {
   display: flex;
   justify-content: center;
+  margin-top: 25vh;
 }
 
 :root {
