@@ -3,11 +3,11 @@ import "./style/InputBox.css"
 
 type InputBoxProps = {
     search: string;
-    setSearch: React.Dispatch<React.SetStateAction<string>>;
+    setsearch: React.Dispatch<React.SetStateAction<string>>;
     fetchData: () => void;
 };
 
-const InputBox = ({search, setsearch, fetchData}) => {
+const InputBox = ({search, setsearch, fetchData}: InputBoxProps) => {
     return (
         <div className='input-component'>
             <label>city name</label><br/>
