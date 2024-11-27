@@ -1,21 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputBox from './Components/InputBox'
 import WeatherBox, {WeatherBoxProps} from './Components/WeatherBox'
 import './App.css'
 import 'typeface-heebo';
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 function App() {
   const [weatherData, setweatherData] = useState<WeatherBoxProps | null>(null);
-
-  const API_URL = import.meta.env.VITE_API_URL;
-  console.log("loaded app");
-
   
-
   const fetchData = async (search: string | any) => {
-    
       try {
         const options = {
           method: 'POST',
@@ -27,17 +22,46 @@ function App() {
       if (!response.ok){
         console.log("didnt get data");
       }
-      setweatherData(await response.json());
+      const data = await response.json();
+      if (data?.name !== weatherData?.name) {
+        setweatherData(data);
+      }
+      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
+  useEffect(() => {
+
+      const locationFetch = () => {
+        
+      const places = ['Tel Aviv', 'London', 'Tokyo', 'Washington', 'Paris']
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((res: GeolocationPosition) => {
+          
+        const {latitude, longitude} = res.coords;
+        fetchData(`${latitude},${longitude}`);
+      }, (rej) => {
+        console.log("Geo error: ", rej.message);
+        fetchData(places[Math.floor(Math.random()*places.length)]);
+      }); } else {
+        fetchData(places[Math.floor(Math.random()*places.length)]);
+      } 
+    };
+
+    if (!weatherData ) {
+      locationFetch();
+    }
+
+  }, [])
+  
+
 
   return (
-    
     <div className='flex-container'>
-      <section>
+      <aside>
         <div>
           icon
         </div>
@@ -47,7 +71,7 @@ function App() {
             around the world
           </p>
         <InputBox fetchData={fetchData}/>
-      </section>
+      </aside>
       <div className="weatherFrame">
         <aside>
           <WeatherBox weatherData={weatherData} />
@@ -55,6 +79,6 @@ function App() {
       </div>
     </div>
   )
-}
+};
 
 export default App

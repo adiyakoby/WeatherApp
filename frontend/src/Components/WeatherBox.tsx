@@ -22,30 +22,51 @@ type WeatherBoxComponentProps = {
 
 const WeatherBox = ({weatherData}:  WeatherBoxComponentProps) => {
 
-    // useEffect(()=>{}, [props]);
+    
     return(
         <div className='weather-component'>
             <div className="outer-box">
                 <div className="inner-box">
-                    <section>
-                      {weatherData && weatherData.name}<br/>
-                      {weatherData && weatherData.country}<br/>
-                      {weatherData && weatherData.localtime}
+                    <section className="header-section">
+                        {weatherData && weatherData.name} <br/>
+                        <span>{weatherData && weatherData.country}</span>
+                        <br/>
+                        <span>{weatherData && weatherData.localtime}</span>
                     </section>
-                    <section>
-                        {weatherData && weatherData.temp_c}<br/>
-                        {weatherData && weatherData.condition.text}<br/>
+      
+                    <section className="temp-section">
+                        {weatherData && weatherData.temp_c}°<br/>
+                        <p className="text">
+                            {weatherData && weatherData.condition.text}
+                        </p>
                     </section>
-                    <section>
-                    {weatherData && weatherData.precip_mm + ' mm'}<br/>
-                    {weatherData && weatherData.humidity + '%'}<br/>
-                    {weatherData && weatherData.wind_kph + ' km/h'}<br/>
+                    
+                    <section className="info-section_h">
+                        <div >
+                            <p className="header">Precipitation</p>
+                            <p>{weatherData && weatherData.precip_mm} mm</p>
+                        </div>
+                        <div>
+                            <p className="header">Humidity</p>
+                            <p>{weatherData && weatherData.humidity}%</p>
+                        </div>
+                        <div>
+                            <p className="header">Wind</p>
+                            <p>{weatherData && weatherData.wind_kph} km/h</p>
+                        </div>
                     </section>
-                    <section>
-                        {weatherData && weatherData.hours.map((item: { hour: number; temp_c: number }) => (
-                            <h5 key={item.hour}>{item.temp_c} - {item.hour} </h5>
+
+                    <section className="info-section_b">
+                        {weatherData && weatherData.hours.map((item, index) => (
+                        <div key={index} className="header">
+                            {item.hour}:00 
+                            <p>
+                                {item.temp_c}°
+                            </p>
+                        </div>
                         ))}
                     </section>
+
                 </div>
             </div>
         </div>

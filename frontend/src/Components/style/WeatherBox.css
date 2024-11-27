@@ -1,18 +1,80 @@
-
+.weather-component {
+    
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
 .outer-box {
-    background-color: rgba(4, 126, 85, 0.082);
-    padding: 15vh;
-    margin-left: 5vh;;
+    background-color: rgba(9, 118, 161, 0.089);
+    padding: 30%;
+    border-radius: 20px;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
 }
 
 .inner-box {
-    background-color: rgb(4, 132, 141);
-    padding: 15vh;
-    border-radius: 2vh;
+    background-color: rgb(5, 119, 128);
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
 }
 
-div section {
+.header-section {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+.temp-section {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+
+.text {
+    font-size: 1.5rem;
+    color: #ffffff; 
+}
+
+.temp-section .text {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.info-section_h {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.info-section_h p{
     color: white;
+    font-size: 1.5rem;
+}
+
+p.header{
+    color: white;
+    font-weight:lighter;
+}
+
+
+
+.info-section_b {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin: 10px;
+}
+
+.info-section_b p {
+    margin: 1%;
     
 }
