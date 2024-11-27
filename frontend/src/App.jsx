@@ -13,21 +13,27 @@ function App() {
   const API_URL = import.meta.env.VITE_API_URL;
 
 
-  const fetchData = () => {
+  const fetchData = async () => {
     
-    if (search.length > 2) {
-      const options = {
-        method: 'POST',
-        body: JSON.stringify(search)
-      };
+      try {
 
-      fetch(API_URL || 'http://localhost:5000/api', options)
-      .then(response => {
-        if (!response.ok) {
-          setweatherData({});
+        if (search.length > 2) {
+          const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({'location': search})
+          };
+
+        const response = await fetch(API_URL || 'http://localhost:5001/api', options)
+        if (!response.ok){
+          console.log("didnt get data");
         }
-        console.log(response.json());        
-      });
+        setweatherData(await response.json());
+      } 
+
+      console.log(weatherData);
+    }catch (error) {
+      console.error("Error fetching data:", error);
     }
   };
 

@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
 import dotenv from 'dotenv';
-import FetchData from './utils';
+import {FetchData, extractHours} from './utils';
 import cors from 'cors';
 
 dotenv.config();
@@ -14,24 +14,26 @@ app.use(cors({
 
 const PORT = process.env.PORT || 5000;
 const API_KEY = process.env.API_KEY || undefined;
-const WEATHER_URL = 'http://api.weatherapi.com/v1/current.json'
+const WEATHER_URL = 'http://api.weatherapi.com/v1/forecast.json'
 
 
 app.post('/api', async (req: Request, res: Response): Promise<any> => {
     try {
-        const {location} = req?.body;
-        const url: string = `${WEATHER_URL}?key=${API_KEY}&q=${location}`;
+        const {location, days} = req?.body;
+        const url: string = `${WEATHER_URL}?key=${API_KEY}&q=${location}&days=${days || 1}}`;
         const data = await FetchData(url);
 
         if (data) {
-            const {name, country, lat, lon, local_time} = data.location;
+            const {name, country, lat, lon, localtime} = data.location;
             const {temp_c, condition, precip_mm, humidity, wind_kph} = data.current;
+            const hours = extractHours(data.forecast.forecastday[0].hour, localtime)
 
             const WeatherData = { 
-                name, country, lat, lon, local_time, temp_c, 
+                name, country, lat, lon, localtime, temp_c, 
                 condition, humidity, wind_kph, precip_mm,
+                hours,
             };
-            console.log(WeatherData)
+            
             return res.json(WeatherData);
         } else {
             return res.status(400).json({error: 'Error: couldnt fetch data.'})
