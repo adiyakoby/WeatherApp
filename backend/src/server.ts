@@ -1,11 +1,17 @@
 import express, {Request, Response} from 'express';
 import dotenv from 'dotenv';
 import FetchData from './utils';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors({
+    'allowedHeaders': ['Content-Type'],
+    'origin': '*',
+}));
+
 const PORT = process.env.PORT || 5000;
 const API_KEY = process.env.API_KEY || undefined;
 const WEATHER_URL = 'http://api.weatherapi.com/v1/current.json'
@@ -25,7 +31,7 @@ app.post('/api', async (req: Request, res: Response): Promise<any> => {
                 name, country, lat, lon, local_time, temp_c, 
                 condition, humidity, wind_kph, precip_mm,
             };
-
+            console.log(WeatherData)
             return res.json(WeatherData);
         } else {
             return res.status(400).json({error: 'Error: couldnt fetch data.'})
