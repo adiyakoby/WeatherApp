@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import InputBox from './Components/InputBox'
 import WeatherBox from './Components/WeatherBox'
 import './App.css'
@@ -12,6 +12,7 @@ function App() {
 
   const API_URL = import.meta.env.VITE_API_URL;
 
+  
 
   const fetchData = async () => {
     
@@ -31,7 +32,6 @@ function App() {
         setweatherData(await response.json());
       } 
 
-      console.log(weatherData);
     }catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -54,7 +54,7 @@ function App() {
       </section>
       <div className="weatherFrame">
         <aside>
-          <WeatherBox/>
+          <WeatherBox weatherData={weatherData}/>
         </aside>
       </div>
     </div>
