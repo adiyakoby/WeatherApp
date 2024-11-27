@@ -1,13 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import "./style/InputBox.css"
 
 type InputBoxProps = {
-    search: string;
-    setsearch: React.Dispatch<React.SetStateAction<string>>;
-    fetchData: () => void;
+    fetchData: (search: string) => void;
 };
 
-const InputBox = ({search, setsearch, fetchData}: InputBoxProps) => {
+const InputBox = ({fetchData}: InputBoxProps) => {
+    const [input, setinput] = useState('')
+
+    const getLocationData = () => {
+        if (input.length > 2) {
+            fetchData(input)
+        }
+
+    };
+
+
     return (
         <div className='input-component'>
             <label>city name</label><br/>
@@ -16,11 +24,11 @@ const InputBox = ({search, setsearch, fetchData}: InputBoxProps) => {
                 type="text" 
                 name='location' 
                 placeholder="Enter a city name"
-                value={search}
-                onChange={(e) => setsearch(e.target.value)}
+                value={input}
+                onChange={(e)=>{setinput(e.target.value)}}
             />
              
-            <button onClick={fetchData}>
+            <button onClick={getLocationData}>
                 Check
             </button>
         </div> 
