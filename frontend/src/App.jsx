@@ -1,9 +1,13 @@
-import './App.css'
-import 'typeface-heebo';
+import React, { useState } from "react";
 import InputBox from './Components/InputBox'
 import WeatherBox from './Components/WeatherBox'
+import './App.css'
+import 'typeface-heebo';
+
+
 
 function App() {
+  const [search, setsearch] = useState('');
 
   return (
     
