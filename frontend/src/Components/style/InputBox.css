@@ -4,6 +4,8 @@
 .input-component {
     position: relative;
     display: inline-block;
+    color: rgba(128, 128, 128, 0.425);
+    font-size: 2vh;
 }
 
 .input-component input {
