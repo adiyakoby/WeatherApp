@@ -1,0 +1,18 @@
+
+
+.outer-box {
+    background-color: rgba(4, 126, 85, 0.082);
+    padding: 15vh;
+    margin-left: 5vh;;
+}
+
+.inner-box {
+    background-color: rgb(4, 132, 141);
+    padding: 15vh;
+    border-radius: 2vh;
+}
+
+div section {
+    color: white;
+    
+}
