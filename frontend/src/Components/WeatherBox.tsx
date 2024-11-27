@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import "./style/WeatherBox.css"
 
 export type WeatherBoxProps = {
@@ -8,18 +7,20 @@ export type WeatherBoxProps = {
     lon: number;
     localtime: string;
     temp_c: number;
-    condition: string[];
+    condition: {text: string, icon:string, code: number};
     humidity: number;
     wind_kph: number;
     precip_mm: number;
     hours: {hour: number, temp_c: number}[];
 
-}
+} 
+
+type WeatherBoxComponentProps = {
+    weatherData: WeatherBoxProps | null;
+  };
 
 
-
-
-const WeatherBox = (props : WeatherBoxProps) => {
+const WeatherBox = ({weatherData}:  WeatherBoxComponentProps) => {
 
     // useEffect(()=>{}, [props]);
     return(
@@ -27,15 +28,23 @@ const WeatherBox = (props : WeatherBoxProps) => {
             <div className="outer-box">
                 <div className="inner-box">
                     <section>
-                        {props.name}
-                        {props.country}
+                      {weatherData && weatherData.name}<br/>
+                      {weatherData && weatherData.country}<br/>
+                      {weatherData && weatherData.localtime}
                     </section>
                     <section>
-                        18 temp<br/>
-                        sunny
+                        {weatherData && weatherData.temp_c}<br/>
+                        {weatherData && weatherData.condition.text}<br/>
                     </section>
                     <section>
-
+                    {weatherData && weatherData.precip_mm + ' mm'}<br/>
+                    {weatherData && weatherData.humidity + '%'}<br/>
+                    {weatherData && weatherData.wind_kph + ' km/h'}<br/>
+                    </section>
+                    <section>
+                        {weatherData && weatherData.hours.map((item: { hour: number; temp_c: number }) => (
+                            <h5 key={item.hour}>{item.temp_c} - {item.hour} </h5>
+                        ))}
                     </section>
                 </div>
             </div>
