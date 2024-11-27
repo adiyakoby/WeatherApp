@@ -17,7 +17,7 @@ app.post('/api', async (req: Request, res: Response): Promise<any> => {
         const url: string = `${WEATHER_URL}?key=${API_KEY}&q=${location}`;
         const data = await FetchData(url);
 
-        if (data.ok) {
+        if (data) {
             const {name, country, lat, lon, local_time} = data.location;
             const {temp_c, condition, precip_mm, humidity, wind_kph} = data.current;
 
