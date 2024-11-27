@@ -13,7 +13,7 @@ div p {
 .flex-container {
   display: flex;
   justify-content: center;
-  margin-top: 25vh;
+  margin: 10%;
 }
 
 :root {
