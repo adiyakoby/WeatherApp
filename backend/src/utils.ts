@@ -6,15 +6,16 @@ type hourTemp = {
 export const FetchData = async (url: string): Promise<any> => {
     try {
         const response = await fetch(url);
+        
         if (response.ok) {
             return await response.json();
         } else {
-            throw new Error("error fetching data.");
+            const {error} = await response.json();
+            throw error;
         }
     } catch (error) {
         console.log(`Error: Couldn't fetch data from url -> ${url}`)
-        console.log(error);
-        throw error;
+        throw error
     }
 
 
