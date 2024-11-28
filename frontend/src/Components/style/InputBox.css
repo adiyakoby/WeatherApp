@@ -16,26 +16,25 @@
     border: none;
     width: 100%;
     color: black;
+    font-size: 2vh;
     
 }
 
 .input-component button {
     position: absolute;
     top: 4vh;
-    right: 1vw;
+    right: 0vw;
     border: none;
     background-color: rgb(5, 119, 128);
     cursor: pointer; 
     border-radius: 5px;
     color: rgba(255, 255, 255, 0.582);
-    
+    font-size: 2vh;  
 }
 
 .error-message {
     color: red;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-top: 1vh;
-
-    
-  }
+}
   
