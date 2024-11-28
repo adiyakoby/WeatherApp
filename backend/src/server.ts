@@ -2,6 +2,7 @@ import express, {Request, Response} from 'express';
 import dotenv from 'dotenv';
 import {FetchData, extractHours} from './utils';
 import cors from 'cors';
+import e from 'express';
 
 dotenv.config();
 
@@ -40,7 +41,7 @@ app.post('/api', async (req: Request, res: Response): Promise<any> => {
         }
         
     } catch (error) {
-        return res.status(400).json({error: 'Error: couldnt fetch data.'})
+        return res.status(400).json(error)
     }
 });
 
