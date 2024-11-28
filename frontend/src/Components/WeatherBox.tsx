@@ -29,9 +29,9 @@ const WeatherBox = ({weatherData}:  WeatherBoxComponentProps) => {
                 <div className="inner-box">
                     <section className="header-section">
                         {weatherData && weatherData.name} <br/>
-                        <span>{weatherData && weatherData.country}</span>
+                        <span className="sub_header">{weatherData && weatherData.country}</span>
                         <br/>
-                        <span>{weatherData && weatherData.localtime}</span>
+                        <span className="sub_header">{weatherData && weatherData.localtime}</span>
                     </section>
       
                     <section className="temp-section">

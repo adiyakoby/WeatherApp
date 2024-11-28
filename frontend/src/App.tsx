@@ -62,11 +62,11 @@ function App() {
   return (
     <div className='flex-container'>
       <aside>
-        <div>
+        <div >
           icon
         </div>
           <p>
-            Use own weather app<br/>
+            Use our weather app<br/>
             to see the weather<br/> 
             around the world
           </p>

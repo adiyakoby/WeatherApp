@@ -1,17 +1,16 @@
 .weather-component {
-    
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    margin: 5vh;
 }
 
 .outer-box {
-    background-color: rgba(9, 118, 161, 0.089);
-    padding: 30%;
-    border-radius: 20px;
-    width: 100%; 
+    background-color: rgba(2, 68, 57, 0.144);
+    padding: 5vw;
+    width: 35vw;
     display: flex;
     justify-content: center;
+    
 }
 
 .inner-box {
@@ -28,9 +27,13 @@
 
 .header-section {
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: bold;   
 }
 
+.sub_header {
+    font-weight:lighter;
+    color: rgba(245, 245, 245, 0.411);
+}
 
 .temp-section {
     font-size: 6rem;
@@ -39,9 +42,10 @@
 }
 
 
-.text {
+section.temp-section p.text {
     font-size: 1.5rem;
-    color: #ffffff; 
+    color: white; 
+    font-weight:lighter;
 }
 
 .temp-section .text {
@@ -68,6 +72,7 @@ p.header{
 
 
 .info-section_b {
+    font-weight:lighter;
     display: flex;
     justify-content: space-between;
     gap: 5px;
@@ -75,6 +80,11 @@ p.header{
 }
 
 .info-section_b p {
-    margin: 1%;
-    
+    margin: 1px;
+    padding: 0.5vw;
+    color: white;
+    font-size: large;
+    font-weight:bold;
+
+
 }
