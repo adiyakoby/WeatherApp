@@ -42,3 +42,5 @@ export const extractHours = (array: any[], local_time: string , delta:number = 3
     return hours.splice(1, 5)
  
 }
+
+export default FetchData;

@@ -5,7 +5,7 @@
 }
 
 .outer-box {
-    background-color: rgba(2, 68, 57, 0.144);
+    background-color: rgba(2, 68, 57, 0.068);
     padding: 5vw;
     width: 35vw;
     display: flex;
@@ -26,6 +26,7 @@
 }
 
 .header-section {
+    margin-top: 2vh;
     font-size: 1.5em;
     font-weight: bold;   
 }
@@ -85,6 +86,4 @@ p.header{
     color: white;
     font-size: large;
     font-weight:bold;
-
-
 }

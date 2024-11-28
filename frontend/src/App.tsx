@@ -8,6 +8,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 
 function App() {
+  console.log("app ren")
   const [weatherData, setweatherData] = useState<WeatherBoxProps | null>(null);
   
   const fetchData = async (search: string | any) => {
@@ -23,9 +24,9 @@ function App() {
         console.log("didnt get data");
       }
       const data = await response.json();
-      if (data?.name !== weatherData?.name) {
-        setweatherData(data);
-      }
+      
+      setweatherData(data);
+      
       
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -61,22 +62,19 @@ function App() {
 
   return (
     <div className='flex-container'>
-      <aside>
-        <div >
-          icon
-        </div>
+      <div className="inputFrame">
+        <svg>
+          <image href='https://static.wixstatic.com/media/348bae_ce2ecf1dbb524d3b83caab1eaece7451~mv2.png/v1/fill/w_122,h_55,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20FINTEK%20XL%202%20(3).png' />
+        </svg>
           <p>
             Use our weather app<br/>
             to see the weather<br/> 
             around the world
           </p>
         <InputBox fetchData={fetchData}/>
-      </aside>
-      <div className="weatherFrame">
-        <aside>
-          <WeatherBox weatherData={weatherData} />
-        </aside>
       </div>
+
+      <WeatherBox weatherData={weatherData} />
     </div>
   )
 };
