@@ -10,12 +10,14 @@
 
 div p {
   color: rgb(142, 151, 156);
-  font-size: 25px;
+  font-size: 3vw;
 }
 
 .flex-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  padding: 2vw;
 }
 
 .inputFrame {
@@ -25,3 +27,4 @@ div p {
   margin-bottom: 10vh;
   padding: 1vw;
 }
+

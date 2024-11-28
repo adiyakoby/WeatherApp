@@ -42,7 +42,7 @@ const WeatherBox = ({weatherData}:  WeatherBoxComponentProps) => {
                     </section>
                     
                     <section className="info-section_h">
-                        <div >
+                        <div>
                             <p className="header">Precipitation</p>
                             <p>{weatherData && weatherData.precip_mm} mm</p>
                         </div>
