@@ -48,7 +48,7 @@ Ensure you have the following installed:
 
 ### Clone the repository:
 ```bash
-git clone https://github.com/your-username/WeatherApp.git
+git clone https://github.com/adiyakoby/WeatherApp
 cd WeatherApp
 ```
 
