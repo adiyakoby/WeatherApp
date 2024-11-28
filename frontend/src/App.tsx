@@ -8,11 +8,14 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 
 function App() {
-  console.log("app ren")
+  
   const [weatherData, setweatherData] = useState<WeatherBoxProps | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
   
   const fetchData = async (search: string | any) => {
       try {
+        setError(null);
         const options = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -20,16 +23,17 @@ function App() {
         };
 
       const response = await fetch(API_URL || 'http://localhost:5001/api', options)
-      if (!response.ok){
-        console.log("didnt get data");
+
+      if (response.ok) {
+        const data = await response.json();
+        setweatherData(data);
+      } else {
+        setError("No data found for the given location.");
+        
       }
-      const data = await response.json();
-      
-      setweatherData(data);
-      
-      
     } catch (error) {
       console.error("Error fetching data:", error);
+      setError("Something went wrong. Please try again later.");
     }
   };
 
@@ -56,7 +60,7 @@ function App() {
       locationFetch();
     }
 
-  }, [])
+  }, [weatherData])
   
 
 
@@ -71,7 +75,7 @@ function App() {
             to see the weather<br/> 
             around the world
           </p>
-        <InputBox fetchData={fetchData}/>
+        <InputBox fetchData={fetchData} error={error}/>
       </div>
 
       <WeatherBox weatherData={weatherData} />
