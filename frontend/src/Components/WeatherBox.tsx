@@ -20,9 +20,15 @@ type WeatherBoxComponentProps = {
   };
 
 
+/**
+ * The WeatherBox component displays detailed weather information including
+ * current conditions, temperature, and hourly forecast.
+ * 
+ * @param weatherData - The weather data to be displayed, can be null if no data available.
+ * @returns The rendered WeatherBox component.
+ */
 const WeatherBox = ({weatherData}:  WeatherBoxComponentProps) => {
 
-    
     return(
         <div className='weather-component'>
             <div className="outer-box">

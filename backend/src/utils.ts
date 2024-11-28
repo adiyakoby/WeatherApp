@@ -3,6 +3,14 @@ type hourTemp = {
     temp_c: number;
 }
 
+
+/**
+ * Fetches data from a given URL.
+ * 
+ * @param url - The API endpoint URL to fetch data from.
+ * @returns The parsed JSON data from the API response.
+ * @throws Throws an error if the fetch operation fails or the response is not ok.
+ */
 export const FetchData = async (url: string): Promise<any> => {
     try {
         const response = await fetch(url);
@@ -22,7 +30,18 @@ export const FetchData = async (url: string): Promise<any> => {
 };
 
 
-export const extractHours = (array: any[], local_time: string , delta:number = 3): hourTemp[] => {
+/**
+ * Extracts hourly temperature data based on the current local time.
+ * 
+ * Filters forecast data to get hourly temperature values within a 3-hour range
+ * from the current local time. Returns a subset of hours starting from the second hour.
+ * 
+ * @param array - Array of forecast hour objects containing temperature data.
+ * @param local_time - The current local time to calculate the range.
+ * @param delta - The number of hours to include before and after the current hour (default is 3).
+ * @returns An array of hourly temperature data objects, each containing hour and temperature.
+ */
+export const extractHours = (array: any[], local_time: string , delta: number = 3): hourTemp[] => {
     let current_hour: number = new Date(local_time).getHours();
 
     if (current_hour === 0) {

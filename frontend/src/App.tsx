@@ -12,7 +12,11 @@ function App() {
   const [weatherData, setweatherData] = useState<WeatherBoxProps | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  
+  /**
+   * Fetches weather data from the backend API using the given location.
+   * 
+   * @param search - The location (city name or coordinates) to fetch data for.
+   */
   const fetchData = async (search: string | any) => {
       try {
         setError(null);
@@ -39,6 +43,7 @@ function App() {
 
   useEffect(() => {
 
+      // Automatically fetch weather data based on geolocation or default places
       const locationFetch = () => {
         
       const places = ['Tel Aviv', 'London', 'Tokyo', 'Washington', 'Paris']

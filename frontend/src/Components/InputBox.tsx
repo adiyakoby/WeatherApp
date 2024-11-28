@@ -7,10 +7,20 @@ type InputBoxProps = {
 };
 
 
-
+/**
+ * The InputBox component allows the user to input a city name and trigger a fetch operation.
+ * It takes a function to fetch data and an optional error message as props.
+ * 
+ * @param fetchData - Function to fetch weather data based on the provided city name.
+ * @param error - Error message to display if any issues arise during data fetching.
+ * @returns The rendered InputBox component.
+ */
 const InputBox = ({fetchData, error}: InputBoxProps) => {
     const [input, setinput] = useState('')
 
+    /**
+     * Trigger function to fetch weather data when input is valid (length > 1).
+     */
     const getLocationData = () => {
         if (input.length > 1) {
             fetchData(input)
