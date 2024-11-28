@@ -6,6 +6,7 @@
     display: inline-block;
     color: rgba(128, 128, 128, 0.425);
     font-size: 2vh;
+    width: 30vw; 
 }
 
 .input-component input {
@@ -13,20 +14,28 @@
     padding: 10px;
     border-radius: 10px;
     border: none;
-    width: 300px;
+    width: 100%;
     color: black;
+    
 }
 
 .input-component button {
     position: absolute;
-    top: 50%;
-    right: 5%;
+    top: 4vh;
+    right: 1vw;
     border: none;
-    background-color: rgb(2, 71, 2);
+    background-color: rgb(5, 119, 128);
     cursor: pointer; 
-    margin: 2px;
     border-radius: 5px;
-    color: rgba(224, 203, 203, 0.678);
+    color: rgba(255, 255, 255, 0.582);
     
 }
 
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 1vh;
+
+    
+  }
+  
